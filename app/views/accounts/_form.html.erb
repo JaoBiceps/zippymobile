@@ -1,0 +1,42 @@
+<%= simple_form_for(@account) do |f| %>
+
+    
+    
+        <div class="input-field col s12 white lighten-2 z-depth-2">
+          
+          <%= f.input :name, label: 'Name' %>
+          
+       
+      </div>
+  
+     <div class="input-field col s12 white lighten-2 z-depth-2">
+          <%= f.input :email, label: 'Email' %>
+      </div>
+
+  <div class="input-field col s12 white lighten-2 z-depth-2">
+  
+   <%= f.input :location, collection: ["Manila","Quezon City","Taguig","Navotas", "Malabon","Pasig",
+    "Muntinlupa","San Juan","Pateros","Mandaluyong","Caloocan","Las Piñas","Makati","Marikina","Pasay","Parañaque","Laguna","Rizal"],label:'location'%>
+  
+  </div>
+<br><br>
+
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+<div class="col offset-s9 "> <br><br><%= f.button :submit %></div>
+ 
+
+
+
+<% end %>
